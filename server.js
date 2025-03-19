@@ -5,6 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const bodyParser = require("body-parser")
+const pedidoRoutes = require("./routes/pedidoRoutes")
 
 //llamar las rutas exportadas desde la carpeta Routes que serán expuestas
 
@@ -17,7 +18,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
 
-//configurar rutas y darle salidas en endpoints
+app.use("/pedido", pedidoRoutes)
 
 const PORT = process.env.PORT || 3000;
 
